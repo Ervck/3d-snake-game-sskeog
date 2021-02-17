@@ -33,34 +33,68 @@ get y() {
 class Snake {
 
 private currentPosition: Point;
-private currentDirection: number;
+private currentDirection: string;
   constructor() {
     this.currentPosition = new Point (0,0);
-    this.currentDirection = 1;
+    this.currentDirection = "Foward";
 
   }
 
-public move(pos:Point) {
+public move() {
+
    display("The Snake Slithers Sinisterly");
-   if (this.currentDirection == 1) {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y), display("The snake has moved foward by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
 
-   else {this.currentPosition.x == this.currentPosition.x - 1, display("The snake has moved backwards by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
+   if (this.currentDirection == "Foward") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + 1),
+   
+     display("The Snake Has Moved Foward To: ", this.currentPosition);}
+
+   else {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - 1), 
+       
+     display("The Snake Has Moved Backwards To: ",this.currentPosition);}
 
   }
+
 public turn() {
-   if (this.currentDirection == 1) {this.currentDirection == this.currentDirection - 2, display("The Snake Whips It's Tail, Turning Backward. ");}
+  
+  if (this.currentDirection == "Foward") {this.currentDirection = "Backward",
+  
+     display("The Snake Whips It's Tail, Turning Backward. ");}
+     
+  else
 
-   else {this.currentDirection == this.currentDirection + 2, display("The Snake Whips It's Tail, Turning Foward. ");}
+     display("The Snake Whips It's Tail, Turning Foward. ");
 
-}
+  }
+
+public turnLeft() {
+ 
+  if (this.currentDirection == "Foward") {this.currentDirection = "Left",
+   
+      display("The Snake Whips It's Tail, Facing The Left Side. ");}
+
+  else if (this.currentDirection == "Left") {this.currentDirection = "Backward",
+  
+      display("The Snake Whips It's Tail, Facing Back Side. ");}
+
+  else if (this.currentDirection == "Backward") {this.currentDirection = "Right",
+  
+      display("The Snake Whips It's Tail, Facing The Right Side. ");}
+
+  }
+
+public turnRight() {
+  
+if (this.currentDirection == "Foward") {this.currentDirection = "Right",
+   
+      display("The Snake Whips It's Tail, Turning Right. ");}
+
+  else
+  
+      display("The Snake Whips It's Tail, Turning Foward. ");
+
+  }
 
 
-public get position() {
- return this.currentPosition
-}
-
-set pos2(newPosition:number) {
-  this.currentPosition = newPosition; }
 
 }
 
