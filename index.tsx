@@ -46,8 +46,7 @@ render(<App />, document.getElementById('root'));
 // Add display statements below
 display("Let's get started with React TypeScript!");
 
-let snake = new Snake(0);
-let world = new WorldModel(0);
+let snake = new Snake();
 snake.turnLeft();
 snake.move(1);
 snake.turnRight();

@@ -33,15 +33,15 @@ get y() {
 
 class Snake {
 
-private snakeType: number;
+private snek: string;
 private currentPosition: Point;
 private currentDirection: string;
 
-  constructor(snakeType: number) {
+  constructor() {
 
     this.currentPosition = new Point (0,0);
     this.currentDirection = "Front";
-    this.snakeType = snakeType;
+    this.snek = "Momo";
   }
 
 public move(n: number) {
@@ -111,23 +111,23 @@ public turnRight() {
 
 class WorldModel {
 
-  private snakeType: Snake;
+  private snek: Snake;
 
-    constructor(snakeType: Snake) {
+    constructor(snek: Snake) {
 
-    this.snakeType = snakeType;
+    this.snek = snek;
 
   }
 
   public update(steps: number) {
   
-   return this.snake.move(steps);
+   this.snek.move(steps);
 
   }
 
   get snake() {
 
-    return this.snakeType;
+    return this.snek;
 
   }
 
