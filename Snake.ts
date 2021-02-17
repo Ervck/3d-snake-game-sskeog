@@ -32,13 +32,11 @@ get yc() {
 
 class Snake {
 
-private currentPosition: number;
+private currentPosition: Point;
 private currentDirection: number;
-private initialLocation: ;
   constructor() {
-    this.currentPosition = 0;
+    this.currentPosition = new Point (1,0);
     this.currentDirection = 1;
-    this.initialLocation = new Point ()
 
   }
 
