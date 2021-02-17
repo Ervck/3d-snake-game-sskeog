@@ -132,9 +132,12 @@ public turnRight() {
 
   }
 
-
-
+ public snakeDesc() {
+    if(this.snakeType === 0) display("The Snake Is Long.");
+    else if(this.snakeType === 1) display("The Snake Is Short.");
+ }
 
 }
+
 
 export default Snake;
