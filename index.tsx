@@ -5,7 +5,7 @@ import './style.css';
 import display from './display';
 import Snake from './Snake';
 import SnakeTests from './SnakeTests';
-import WorldModel from './Snake';
+import WorldModel from './WorldModel';
 
 interface AppProps { }
 interface AppState {
@@ -47,11 +47,10 @@ render(<App />, document.getElementById('root'));
 display("Let's get started with React TypeScript!");
 
 let snake = new Snake();
-snake.turnLeft();
-snake.move(1);
-snake.turnRight();
-snake.move(2);
-
-
-
+let world = new WorldModel(snake);
+let thing = JSON.stringify(world.snake.currentPosition);
+display (thing);
+world.update(1);
+world.snake.turnRight();
+display (thing);
 

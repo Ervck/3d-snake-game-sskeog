@@ -1,47 +1,18 @@
 import display from './display';
-
-
-
-class Point {
-  
-  private xcoord: number;
-  private ycoord: number;
-
-
- constructor(x = 0, y = 0) {
-
-    this.xcoord = x;
-    
-    this.ycoord = y;
-
- }
-
-get x() {
-
-    return this.xcoord;
-
- }
-
-get y() {
-
-    return this.ycoord;
-
- }
-
-}
+import Point from './Point'
 
 
 class Snake {
 
-private snek: string;
-private currentPosition: Point;
-private currentDirection: string;
+
+public currentPosition: Point;
+public currentDirection: string;
 
   constructor() {
 
     this.currentPosition = new Point (0,0);
     this.currentDirection = "Front";
-    this.snek = "Momo";
+    
   }
 
 public move(n: number) {
@@ -106,31 +77,6 @@ public turnRight() {
       display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
 
   }
-
-}
-
-class WorldModel {
-
-  private snek: Snake;
-
-    constructor(snek: Snake) {
-
-    this.snek = snek;
-
-  }
-
-  public update(steps: number) {
-  
-   this.snek.move(steps);
-
-  }
-
-  get snake() {
-
-    return this.snek;
-
-  }
-
 
 }
 
