@@ -50,6 +50,8 @@ let snake = new Snake(0);
 let world = new WorldModel(0);
 snake.turnLeft();
 snake.move(1);
+snake.turnRight();
+snake.move(2);
 
 
 

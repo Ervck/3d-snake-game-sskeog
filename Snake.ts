@@ -50,19 +50,19 @@ public move(n: number) {
 
    if (this.currentDirection == "Front") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + n),
    
-     display("The Snake Has Moved Foward To: ", JSON.stringify(this.currentPosition));}
+     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Back") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - n), 
        
-     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
+     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Left") {this.currentPosition = new Point (this.currentPosition.x - n, this.currentPosition.y), 
        
-     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
+     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Right") {this.currentPosition = new Point (this.currentPosition.x + n, this.currentPosition.y), 
        
-     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
+     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
 
   }
 
@@ -71,19 +71,19 @@ public turnLeft() {
  
   if (this.currentDirection == "Front") {this.currentDirection = "Left",
    
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
 
   else if (this.currentDirection == "Left") {this.currentDirection = "Back",
   
-      display("The Snake Whips It's Tail,Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail,Turning To The", this.currentDirection, "Side. ");}
 
   else if (this.currentDirection == "Back") {this.currentDirection = "Right",
   
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
   
   else {this.currentDirection = "Front",
   
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
 
   }
 
@@ -91,26 +91,21 @@ public turnRight() {
 
   if (this.currentDirection == "Front") {this.currentDirection = "Right",
    
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
 
   else if (this.currentDirection == "Right") {this.currentDirection = "Back",
   
-      display("The Snake Whips It's Tail,Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail,Turning To The", this.currentDirection, "Side. ");}
 
   else if (this.currentDirection == "Back") {this.currentDirection = "Left",
   
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
   
   else {this.currentDirection = "Front",
   
-      display("The Snake Whips It's Tail, Turning To The ", this.currentDirection, " Side. ");}
+      display("The Snake Whips It's Tail, Turning To The", this.currentDirection, "Side. ");}
 
   }
-
- public snakeDesc() {
-    if(this.snakeType === 0) display("The Snake Is Long.");
-    else if(this.snakeType === 1) display("The Snake Is Short.");
- }
 
 }
 
@@ -130,7 +125,7 @@ class WorldModel {
 
   }
 
-get snake() {
+  get snake() {
 
     return this.snakeType;
 
