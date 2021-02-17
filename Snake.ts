@@ -78,6 +78,12 @@ public turnRight() {
 
   }
 
+
+   get direction () {
+
+   return this.currentDirection
+ }
+
 }
 
 export default Snake;
