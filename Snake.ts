@@ -69,13 +69,6 @@ private currentDirection: string;
     this.snakeType = snakeType;
   }
 
- public snakeT() {
-
-    if(this.snakeType === 0) display("The Snake Is Long And Green.");
-    else (display("The Snake Is Short And Red."));
-
- }
-
 public move(n: number) {
 
    display("The Snake Slithers Sinisterly");
