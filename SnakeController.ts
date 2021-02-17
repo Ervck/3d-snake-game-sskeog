@@ -5,12 +5,12 @@ class SnakeController {
 
    snake: Snake;
    world: WorldModel;
-   snakeWorld: void;
+   snakeWorld: void; /**I wans't sure what type these would be. */
    slither: void;
 
   constructor (World: number, Snake: number) {
         
-    this.snakeWorld ; void
+    this.snakeWorld ; void 
     this.slither ; void
     
  }
