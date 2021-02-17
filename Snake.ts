@@ -2,31 +2,6 @@ import display from './display';
 
 
 
-class WorldModel {
-
-  private snakeType: Snake;
-
-    constructor(snakeType: Snake) {
-
-    this.snakeType = snakeType;
-
-  }
-
-  public update(steps: number) {
-  
-   this.snakeType.move(steps);
-
-  }
-
-get snake() {
-
-    return this.snakeType;
-
-  }
-
-
-}
-
 class Point {
   
   private xcoord: number;
@@ -75,19 +50,19 @@ public move(n: number) {
 
    if (this.currentDirection == "Front") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + n),
    
-     display("The Snake Has Moved Foward To: ", this.currentPosition);}
+     display("The Snake Has Moved Foward To: ", JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Back") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - n), 
        
-     display("The Snake Has Moved Foward To: ",this.currentPosition);}
+     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Left") {this.currentPosition = new Point (this.currentPosition.x - n, this.currentPosition.y), 
        
-     display("The Snake Has Moved Foward To: ",this.currentPosition);}
+     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
 
    else if (this.currentDirection == "Right") {this.currentPosition = new Point (this.currentPosition.x + n, this.currentPosition.y), 
        
-     display("The Snake Has Moved Foward To: ",this.currentPosition);}
+     display("The Snake Has Moved Foward To: ",JSON.stringify(this.currentPosition));}
 
   }
 
@@ -139,5 +114,29 @@ public turnRight() {
 
 }
 
+class WorldModel {
+
+  private snakeType: Snake;
+
+    constructor(snakeType: Snake) {
+
+    this.snakeType = snakeType;
+
+  }
+
+  public update(steps: number) {
+  
+   return this.snake.move(steps);
+
+  }
+
+get snake() {
+
+    return this.snakeType;
+
+  }
+
+
+}
 
 export default Snake;
