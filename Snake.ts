@@ -1,8 +1,34 @@
 import display from './display';
 
-// place your code on line 5 above the export statement below
+
+
+class WorldModel {
+
+  private snakeType: Snake;
+
+    constructor(snakeType: Snake) {
+
+    this.snakeType = snakeType;
+
+  }
+
+  public update(steps: number) {
+  
+   this.snakeType.move(steps);
+
+  }
+
+get snake() {
+
+    return this.snakeType;
+
+  }
+
+
+}
 
 class Point {
+  
   private xcoord: number;
   private ycoord: number;
 
@@ -14,57 +40,64 @@ class Point {
     this.ycoord = y;
 
  }
+
 get x() {
 
-    return this.x;
+    return this.xcoord;
 
  }
+
 get y() {
 
-    return this.y;
+    return this.ycoord;
 
  }
-
-
 
 }
 
 
 class Snake {
 
+private snakeType: number;
 private currentPosition: Point;
 private currentDirection: string;
-  constructor() {
+
+  constructor(snakeType: number) {
+
     this.currentPosition = new Point (0,0);
     this.currentDirection = "Front";
-
+    this.snakeType = snakeType;
   }
 
-public move() {
+ public snakeT() {
+
+    if(this.snakeType === 0) display("The Snake Is Long And Green.");
+    else (display("The Snake Is Short And Red."));
+
+ }
+
+public move(n: number) {
 
    display("The Snake Slithers Sinisterly");
 
-   if (this.currentDirection == "Front") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + 1),
+   if (this.currentDirection == "Front") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + n),
    
      display("The Snake Has Moved Foward To: ", this.currentPosition);}
 
-   else {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - 1), 
+   else if (this.currentDirection == "Back") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - n), 
        
-     display("The Snake Has Moved Backwards To: ",this.currentPosition);}
+     display("The Snake Has Moved Foward To: ",this.currentPosition);}
+
+   else if (this.currentDirection == "Left") {this.currentPosition = new Point (this.currentPosition.x - n, this.currentPosition.y), 
+       
+     display("The Snake Has Moved Foward To: ",this.currentPosition);}
+
+   else if (this.currentDirection == "Right") {this.currentPosition = new Point (this.currentPosition.x + n, this.currentPosition.y), 
+       
+     display("The Snake Has Moved Foward To: ",this.currentPosition);}
 
   }
 
-public turn() {
-  
-  if (this.currentDirection == "Front") {this.currentDirection = "Back",
-  
-     display("The Snake Whips It's Tail, Turning To The ", this.currentDirection," Side. ");}
-     
-  else
-
-     display("The Snake Whips It's Tail, Turning To The ", this.currentDirection," Side. ");
-
-  }
 
 public turnLeft() {
  
@@ -106,7 +139,6 @@ public turnRight() {
 
   }
 
-  
 
 
 

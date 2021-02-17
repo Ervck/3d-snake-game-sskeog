@@ -5,6 +5,7 @@ import './style.css';
 import display from './display';
 import Snake from './Snake';
 import SnakeTests from './SnakeTests';
+import WorldModel from './Snake';
 
 interface AppProps { }
 interface AppState {
@@ -44,3 +45,10 @@ render(<App />, document.getElementById('root'));
 
 // Add display statements below
 display("Let's get started with React TypeScript!");
+
+let snake = new Snake(0);
+snake.turnLeft();
+
+
+
+
