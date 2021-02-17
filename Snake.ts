@@ -12,11 +12,11 @@ class Point {
     this.ycoord = y;
 
  }
-get xc() {
-    return this.xcoord;
+get x() {
+    return this.x;
  }
-get yc() {
-    return this.ycoord;
+get y() {
+    return this.y;
 
  }
 
@@ -35,16 +35,16 @@ class Snake {
 private currentPosition: Point;
 private currentDirection: number;
   constructor() {
-    this.currentPosition = new Point (1,0);
+    this.currentPosition = new Point (0,0);
     this.currentDirection = 1;
 
   }
 
-public move(pos:number) {
+public move(pos:Point) {
    display("The Snake Slithers Sinisterly");
-   if (this.currentDirection == 1) {this.currentPosition == this.currentPosition + pos, display("The snake has moved foward by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
+   if (this.currentDirection == 1) {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y), display("The snake has moved foward by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
 
-   else {this.currentPosition == this.currentPosition - pos, display("The snake has moved backwards by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
+   else {this.currentPosition.x == this.currentPosition.x - 1, display("The snake has moved backwards by: ", pos, "space(s). To A New Position Of: ", this.currentPosition);}
 
   }
 public turn() {
