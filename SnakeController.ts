@@ -5,13 +5,13 @@ class SnakeController {
 
    snake: Snake;
    world: WorldModel;
-   snakeWorld: null;
-   slither: null;
+   snakeWorld: void;
+   slither: void;
 
   constructor (World: number, Snake: number) {
         
-    this.snakeWorld = null;
-    this.slither = null;
+    this.snakeWorld ; void
+    this.slither ; void
     
  }
 
