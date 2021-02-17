@@ -74,23 +74,21 @@ public turnLeft() {
 
   else if (this.currentDirection == "Left") {this.currentDirection = "Backward",
   
-      display("The Snake Whips It's Tail, Facing Back Side. ");}
+      display("The Snake Whips It's Tail, Facing The Back. ");}
 
   else if (this.currentDirection == "Backward") {this.currentDirection = "Right",
   
       display("The Snake Whips It's Tail, Facing The Right Side. ");}
+  
+  else {this.currentDirection = "Foward",
+  
+      display("The Snake Whips It's Tail, Facing The Front. ");}
 
   }
 
 public turnRight() {
   
-if (this.currentDirection == "Foward") {this.currentDirection = "Right",
-   
-      display("The Snake Whips It's Tail, Turning Right. ");}
 
-  else
-  
-      display("The Snake Whips It's Tail, Turning Foward. ");
 
   }
 
