@@ -25,9 +25,13 @@ constructor (scaf, canvas) {
 
 display (world: WorldModel) {
 
-
+canvasWidth = world.wWidth ** this.scaf;
+canvasHeight = null;
 }
 
 
 
 }
+
+
+export default CanvasView;
