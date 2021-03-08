@@ -3,15 +3,13 @@ import WorldModel from "./WorldModel"
 
 class SnakeController { 
 
-   snake: Snake;
-   world: WorldModel;
-   snakeWorld: void; /**I wans't sure what type these would be. */
-   slither: void;
+   snakeWorld: WorldModel;
+   slither: Snake;
 
-  constructor (World: number, Snake: number) {
+  constructor (world: WorldModel, snake: Snake) {
         
-    this.snakeWorld ; void 
-    this.slither ; void
+    this.snakeWorld = world;  
+    this.slither = snake; 
     
  }
 
@@ -29,24 +27,24 @@ class SnakeController {
 
  get snakePosition () {
 
-   return this.snake.currentPosition
+   return this.slither.currentPosition
 
  }
 
   get snakeDirection () {
 
-   return this.snake.currentDirection
+   return this.slither.currentDirection
 
  }
 
  get worldWidth () {
 
-   return this.world.width
+   return this.snakeWorld.width
  }
 
 get worldHeight () {
 
-   return this.world.height
+   return this.snakeWorld.height
  }
 
 }

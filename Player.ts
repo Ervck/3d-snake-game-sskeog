@@ -1,40 +1,13 @@
-import SnakeController from "./SnakeController"
+import SnakeController from "./SnakeController";
 
 abstract class Player {
-  abstract makeTurn: () => void;
   sc: SnakeController;
 
- constructor (sc: SnakeController) {
-    
-    this.sc = sc;
-
+    constructor(sc: SnakeController) {
+     this.sc = sc;
   }
-
- 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  abstract makeTurn();
 }
+
 
 export default Player;
