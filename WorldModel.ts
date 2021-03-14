@@ -2,31 +2,41 @@ import Snake from "./Snake"
 import View from "./View";
 
 class WorldModel { 
-   sSnake:Snake;
+   sSnake:Snake[] = [];
    width: number;
    height: number;
-   view: View;
+   view: View[] = [];
 
- constructor (sSnake: Snake, height: number, width: number) {
+ constructor (height: number, width: number) {
     
-    this.sSnake = sSnake;
     this.height = height;
     this.width = width;
-    this.view = null;
  }
 
- update(steps: number) {
+   public addSnake(s: Snake) {
 
-   this.sSnake.move(steps);
+      this.sSnake.push(s);
+  }
 
-    if (this.view != null) this.view.display(this);
+  public addView(v: View) {
+
+      this.view.push(v);
+  }
+
+
+
+ public update(steps: number) {
+
+    for (let snake of this.sSnake) snake.move(steps);
+
+    for (let view of this.view) view.display(this);
 
  }
 
- get snake () {
+  public get allSnakes() {
+    return this.sSnake;
 
-   return this.sSnake;
- }
+  }
 
 get wWidth () {
 
@@ -38,10 +48,6 @@ get wHeight () {
    return this.height;
  }
 
-set theView(view: View) {
-
-   this.view = view;
-  }
 }
 
 

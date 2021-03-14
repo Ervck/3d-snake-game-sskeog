@@ -9,6 +9,7 @@ import WorldModel from "./WorldModel";
 import SnakeController from "./SnakeController";
 import AvoidWallsPlayer from "./AvoidWallsPlayer";
 import CanvasView from "./CanvasView";
+import Point from "./Point";
 
 interface AppProps { }
 interface AppState {
@@ -49,9 +50,10 @@ render(<App />, document.getElementById('root'));
 // Add display statements below
 display("Let's get started with React TypeScript!");
 
-let snake = new Snake();
-let world = new WorldModel(snake, 10, 10);
+let snake = new Snake(new Point(5, 5), 3);
+let world = new WorldModel(10, 10);
+world.addSnake(snake);
+let view = new CanvasView(50);
+world.addView(view);
 let sc = new SnakeController(world, snake);
-let view = new CanvasView(10);
-world.view = view;
 world.update(1);

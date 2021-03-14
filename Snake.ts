@@ -5,36 +5,45 @@ import Point from './Point'
 class Snake {
 
 
-public currentPosition: Point;
+public currentParts: Point[] = [];
 public currentDirection: string;
+public size: number;
 
-  constructor() {
+  constructor(startPosition: Point, size: number) {
 
-    this.currentPosition = new Point (0,0);
+    this.currentParts.push(startPosition);
+
+      for (let i: number = 0; i < size - 2; i++)
+
+    this.currentParts.push(new Point(startPosition.x, startPosition.y - i));
+
     this.currentDirection = "Front";
     
+    this.size = size;
   }
 
 public move(n: number) {
 
-   display("The Snake Slithers Sinisterly");
+    for (let i = this.currentParts.length - 1; i > 0; i--) {
+      this.currentParts[i] = new Point(
 
-   if (this.currentDirection == "Front") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y + n),
-   
-     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
+        this.currentParts[i - 1].x,
 
-   else if (this.currentDirection == "Back") {this.currentPosition = new Point (this.currentPosition.x, this.currentPosition.y - n), 
-       
-     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
+        this.currentParts[i - 1].y
+      );
 
-   else if (this.currentDirection == "Left") {this.currentPosition = new Point (this.currentPosition.x - n, this.currentPosition.y), 
-       
-     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
+    }
 
-   else if (this.currentDirection == "Right") {this.currentPosition = new Point (this.currentPosition.x + n, this.currentPosition.y), 
-       
-     display("The Snake Has Moved To:", JSON.stringify(this.currentPosition));}
+    let x = this.currentParts[0].x;
+    let y = this.currentParts[0].y;
 
+    if (this.currentDirection == "Front") y -= n;
+    if (this.currentDirection == "Back") x += n;
+    if (this.currentDirection == "Left") y += n;
+    if (this.currentDirection == "Right") x -= n;
+
+    this.currentParts[0] = new Point(x, y);
+    
   }
 
 
@@ -84,6 +93,22 @@ public turnRight() {
    return this.currentDirection
  }
 
+get position() {
+  return this.currentParts[0];
+}
+
+get parts() {
+  return this.currentParts;
+}
+
+didCollide(s: Snake) {
+  for (let p of s.parts.slice(1))
+    if (p.x == this.currentParts[0].x && p.y == this.currentParts[0].y)
+      return true;
+
+  return false;
+  }
+  
 }
 
 export default Snake;
