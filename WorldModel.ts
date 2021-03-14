@@ -31,6 +31,8 @@ class WorldModel {
 
     for (let view of this.view) view.display(this);
 
+    const snakeCollisions = [null];
+
  }
 
   public get allSnakes() {
